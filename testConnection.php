@@ -9,17 +9,19 @@
         <h1>Bases de données MySQL</h1>
         <?php
             $servername = 'localhost';
-            $username = 'root';
-            $password = 'root';
+            $username = 'BddUser';
+            $password = 'BddUserPass2019';
 
             //On établit la connexion
             $conn = new mysqli($servername, $username, $password);
 
             //On vérifie la connexion
-            if($conn->connect_error){
-                die('Erreur : ' .$conn->connect_error);
+            if($conn->connect_error) {
+                die('Connexion échoué : ' .$conn->connect_error);
             }
-            echo 'Connexion réussie';
+            else {
+              echo 'Connexion réussie';
+            }
         ?>
     </body>
 </html>
