@@ -6,6 +6,13 @@
         <link rel="stylesheet" href="CSS/style.css" media="screen" type="text/css" />
     </head>
     <body>
+      <div id="en-tete">
+
+
+
+      </div>
+
+
         <div id="container">
             <!-- zone de connexion -->
 
@@ -19,10 +26,11 @@
                 <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
                 <input type="submit" id='submit' value='Connexion' >
+
+                <?php
+
+                ?>
             </form>
         </div>
     </body>
-    <footer>
-      <p>Joshua KOWALSKI - Thibault PECH</p>
-    </footer>
 </html>

@@ -1,30 +1,54 @@
 <?php
-//session_start();
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     // connexion à la base de données
+    $db_host     = 'localhost';
     $db_username = $_POST['username'];
     $db_password = $_POST['password'];
-    $db_name     = 'JeuxVideo';
-    $db_host     = 'localhost';
-    $db = mysqli_connect($db_host, $db_username, $db_password,$db_name)
-           or die('could not connect to database');
 
+    $conn = new mysqli($db_host, $db_username, $db_password, 'JeuxVideo');
 
-        $requete = "SELECT count(*) FROM utilisateur where
-              nom_utilisateur = '".$username."' and mot_de_passe = '".$password."' ";
-        $exec_requete = mysqli_query($db,$requete);
-        $reponse      = mysqli_fetch_array($exec_requete);
-        $count = $reponse['count(*)'];
-        if($count!=0) // nom d'utilisateur et mot de passe correctes
-          {
-            $_SESSION['username'] = $username;
-            echo 'Connexion reussi';
-          }
-        else
-          {
-            echo 'Connexion echoué'; // utilisateur ou mot de passe incorrect
-          }
+    if($conn->connect_error)
+      {
+        die('Connexion échoué : ' .$conn->connect_error);
+      }
 
-//mysqli_close($db); // fermer la connexion
+    else
+      {
+        /*$req = mysqli_query($conn, 'SHOW TABLES FROM JeuxVideo');
+        echo $req;*/
+        echo '<!DOCTYPE html>
+        <html>
+            <head>
+               <meta charset="utf-8">
+                <!-- importer le fichier de style -->
+                <link rel="stylesheet" href="CSS/style.css" media="screen" type="text/css" />
+                <a href="index.php"><img src="retour.png"></a>
+            </head>
+            <body>
+                <div id="container">
+                    <!-- zone de connexion -->
+
+                    <form action="confirmchoise.php" method="POST">
+                      <h1 align="center">Accès à la base de données</h1>
+
+                      <label><b>Choix de la table disponible</b></label>
+
+                          </br>
+
+                      <select name="choix">
+                        <option value="choix1">1. Jeux vidéo</option>
+                        <option value="choix2">2. Ville</option>
+                        <option value="choix3">3. Test</option>
+                      </select>
+
+                      <input type="submit" id="submit" value="Valider" >
+
+                    </form>
+                </div>
+            </body>
+        </html>
+        ';
+      }
+  }
 ?>
