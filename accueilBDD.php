@@ -20,9 +20,15 @@ if(isset($_POST['username']) && isset($_POST['password']))
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
         // output data of each row
+        echo "<br>";
+        echo "<table border='1'>";
         while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" .$row["TABLE_NAME"]. "</td><td>";
-        }
+            echo "<tr>";
+             foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
+                echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+            }
+        echo "</tr>";
+          }   
         echo "</table>";
         } else { echo "0 results"; }
 
@@ -38,21 +44,28 @@ if(isset($_POST['username']) && isset($_POST['password']))
                 <div id="container">
                     <!-- zone de connexion -->
 
-                    <form action="confirmchoise.php" method="POST">
+                    <form action="accueilTABLE.php" method="POST">
                       <h1 align="center">Accès à la base de données</h1>
-
                       <label><b>Choix de la table disponible</b></label>
 
                           </br>
 
-                      <select name="choix">
-                        <option value="choix1">1. Jeux vidéo</option>
-                        <option value="choix2">2. Ville</option>
-                        <option value="choix3">3. Test</option>
+                      <select name="table">
+                        <option value="jeux_video">Jeux vidéo</option>
+                        <option value="test">Test</option>
+                        <option value="villes_france_free">Villes</option>
                       </select>
-
+                      <input type="hidden" name="username" value="'.$db_username.'">
+                      <input type="hidden" name="password" value="'.$db_password.'">
                       <input type="submit" id="submit" value="Valider" >
 
+                    </form>
+                    <form action="accueilTABLE.php" method="POST">
+                    <label><b>Mode manuel</b></label>
+                    <input type="text" placeholder="Nom de la table" name="table">
+                    <input type="hidden" name="username" value="'.$db_username.'">
+                    <input type="hidden" name="password" value="'.$db_password.'">
+                    <input type="submit" id="submit" value="Valider">
                     </form>
                 </div>
             </body>
