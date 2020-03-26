@@ -1,10 +1,44 @@
+<<<<<<< HEAD
+<!DOCTYPE html>                                                                 <!--Début de la page web-->
+    <head>
+      <title>Accueil Table</title>
+=======
 <!DOCTYPE html>
     <head>
       <meta charset="utf-8">
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
       <link rel="stylesheet" href="CSS/style.css" media="screen" type="text/css" />
     </head>
 
 <?php
+<<<<<<< HEAD
+if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table'])) {//Vérifie qu'on récupère le login, password & table de accueilBDD.php
+  $db_host     = 'localhost';                                                   //Host du serveur mysql (ici on est en local)
+  $db_username = $_POST['username'];                                            //Récupération du nom utilisateur tapé par le client
+  $db_password = $_POST['password'];                                            //Récupération du mdp tapé par le client
+  $db_name     = 'JeuxVideo';                                                   //Nom de la BDD
+  $db_table    = $_POST['table'];                                               //Récupération du nom de la table
+
+  $conn = new mysqli($db_host, $db_username, $db_password, $db_name);           //On créé une variable 'connection' pour tester la validité de l'utilisateur et du mdp
+
+  if($conn->connect_error) {
+    echo '<a href="../index.php"><img id="deco" src="retour.png" width="50" height="50"></a>';
+    die('Connexion échoué : ' .$conn->connect_error);                           //Si le nom d'utilisateur ou le mdp est incorrecte, on affiche un message error
+  }
+  else {
+    //Bloc pour sélectionner les tables
+    $sql = "SELECT * FROM $db_table";                                           //Sélection de la table
+    $result = $conn->query($sql);
+    $sqlTable = "SHOW COLUMNS FROM $db_table";                                  //Affichage de l'en-tête du tableau
+    $resultTable = mysqli_query($conn,$sqlTable);
+
+    echo '<header id="titreTable"><h1>'.$db_table.'</h1></header>';             //Affichage du titre de la table
+
+    if ($result->num_rows > 0) {
+      echo '<br>';
+      echo '<table id="listeTab" border="1">';
+      while($rowTable = mysqli_fetch_array($resultTable)){                      //Affichage de l'en-tête
+=======
 if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table'])) {
   // connexion à la base de données
   $db_host     = 'localhost';
@@ -34,6 +68,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table
       echo "<br>";
       echo '<table id="listeTab" border="1">';
       while($rowTable = mysqli_fetch_array($resultTable)){
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
         echo "<td>";
         echo $rowTable['Field']."</td>";
       }
@@ -48,10 +83,17 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table
     }
     else {
       echo "<p>Erreur, nom de table invalide.</p>";
+<<<<<<< HEAD
+      echo '<a href="../index.php"><img id="deco" src="retour.png" align="right" width="50" height="50"></a>';
+    }
+    /*switch ($db_table) {                                                        //Tentative (échoué) de sauvegarder les données
+      case 'jeux_video':                                                        //On met en place le tableau pour afficher tous les paramètres de la table JEUX VIDEO pour ajouter un enregistrement
+=======
       echo '<a href="../index.php"><img id="deco" src="retour.png" align="right"></a>';
     }
     switch ($db_table) {
       case 'jeux_video':
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
         echo '<form action="accueilTABLE.php" method="POST">
                <label><b>Ajouter un enregistrement</b></label>
                <input type="number" placeholder="id" name="ID">
@@ -68,12 +110,20 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table
                <input type="submit" id="submit" value="Valider">
               </form>';
       break;
+<<<<<<< HEAD
+
+=======
       
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
       case 'test':
         echo '<form action="accueilTABLE.php" method="POST">
           <label><b>Ajouter un enregistrement</b></label>
           <input type="number" placeholder="id" name="id">
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
           <input type="hidden" name="username" value="<?php echo $db_username; ?>">
           <input type="hidden" name="password" value="<?php echo $db_password; ?>">
           <input type="hidden" name="table" value="<?php echo $db_table; ?>">
@@ -81,7 +131,11 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table
         </form>';
         break;
 
+<<<<<<< HEAD
+      case 'villes_france_free':                                                //On met en place le tableau pour afficher tous les paramètres de la table VILLES pour ajouter un enregistrement
+=======
       case 'villes_france_free':
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
         echo '<form action="accueilTABLE.php" method="POST">
                <label><b>Ajouter un enregistrement</b></label>
                <input type="number" placeholder="ville_id" name="ville_id">
@@ -122,7 +176,22 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['table
       default:
         echo '<p>Editeur indisponible</p>';
       break;
+<<<<<<< HEAD
+    }*/
+=======
     }
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
   }
 }
 ?>
+<body>
+  <form id="clean" action="../accueilBDD.php" method="post">
+    <input type="hidden" name="username" value="<?php echo $db_username; ?>">
+    <button type="submit" name="password" value="<?php echo $db_password; ?>" class="btn-link">Accueil BDD</button>
+  </form>
+  <a href="../index.php"><img id="deco" src="home.png" width="50" height="50"></a>
+  <form id="clean" action="../carte.php" method="post">
+    <input type="hidden" name="username" value="<?php echo $db_username; ?>">
+    <button type="submit" name="password" value="<?php echo $db_password; ?>" class="btn-link">Carte</button>
+  </form>
+</body>

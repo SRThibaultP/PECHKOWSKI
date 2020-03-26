@@ -1,15 +1,43 @@
-body
-{
-    background: #67BE4B;
+body {
+  background: #67BE4B;
 }
+<<<<<<< HEAD
+
+#container {
+  width:800px;
+  margin:0 auto;
+  margin-top:1%;
+=======
 #container
 {
     width:800px;
     margin:0 auto;
     margin-top:1%;
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
 }
-/* Bordered form */
 
+<<<<<<< HEAD
+form {
+  width:100%;
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#clean {
+  width:0%;
+  padding: 0px;
+  border: 0px solid;
+  background: #67BE4B;
+  box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+#container h1 {
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 10px;
+=======
 form
 {
     width:100%;
@@ -24,38 +52,35 @@ form
     text-align: center;
     margin: 0 auto;
     padding-bottom: 10px;
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
 }
 
-/* Full-width inputs */
-input[type=text], input[type=password]
-{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-input[type=submit]
-{
-    background-color: #53af57;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+input[type=submit] {
+  background-color: #53af57;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
-input[type=submit]:hover
-{
-    background-color: white;
-    color: #53af57;
-    border: 1px solid #53af57;
+
+input[type=submit]:hover {
+  background-color: white;
+  color: #53af57;
+  border: 1px solid #53af57;
 }
-footer
-{
+
+footer {
   text-align: center;
   background-color: white;
   color: black;
@@ -67,9 +92,35 @@ footer
   box-shadow: 8px 8px 0px #aaa;
   text-shadow:0 0 4px white, 0 -5px 4px #FFFF33, 2px -10px 6px #FFDD33, -2px -15px 11px #FF8800, 2px -25px 18px #FF2200;
 }
+<<<<<<< HEAD
+
+#deco {
+  margin-left: 97%;
+}
+
+#listeTab {
+  margin-left: 23%;
+  font-weight: bold;
+  font-size: 25px;
+  width:59%;
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#titreTable {
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  text-align: center;
+=======
 
 #deco {
     margin-left: 97%;
+>>>>>>> 9942f737d5e2c4b0283437a20f5f8222c1521530
 }
 
 #listeTab{
